@@ -1,0 +1,21 @@
+.form-wrapper{
+  margin-top: 100px;
+  max-width: 500px;
+}
+.form-title{
+  font-size: 30px;
+}
+
+.auth-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-wrapper{
+  margin-top: 35px;
+  align-self: flex-end;
+}
+
+.login-btn{
+  margin-left: 40px;
+}

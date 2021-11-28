@@ -1,0 +1,26 @@
+.type-card{
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+}
+
+.type-card-footer{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: solid 1px black;
+
+}
+
+.type-card-footer div{
+  font-size: 21px;
+}
+
+.type-card-footer button a{
+  color: aliceblue;
+}
+
+.type-card img{
+  width: 260px;
+  height: 150px;
+}
