@@ -13,8 +13,6 @@ export const CardItem = ({product}) => {
   const removeCardProductHandler = async () => {
     const newCard = await removeCardProduct(product.id, id, token)
     setCardProducts(newCard)
-    // eslint-disable-next-line no-restricted-globals
-    location.reload()
   }
   return (
     <div id={product.id} className="product-item">

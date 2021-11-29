@@ -1,18 +1,14 @@
-import { useCallback, useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../context/AuthContext'
-import { useNativeUser } from '../hooks/nativeUser.hook'
+import { useCallback, useContext, useEffect } from 'react'
+import { UserContext } from '../context/UserContext'
 import './css/CardFooter.css'
 
 export const CardFooter = () => {
-  const [totalPrice, setTotalPrice] = useState(0)
-  const {id, token} = useContext(AuthContext)
-  const {getCardProducts} = useNativeUser()
+  const {cardTotalPrice, setCardTotalPrice, cardProducts} = useContext(UserContext)
 
   const totalPriceCountHandler = useCallback(async() => {
-    const cardProducts = await getCardProducts(id, token)
     const price = cardProducts.reduce((total, curr) => total + curr.price, 0)
-    setTotalPrice(price)
-  }, [getCardProducts, id, token])
+    setCardTotalPrice(price)
+  }, [cardProducts, setCardTotalPrice])
 
   useEffect(() => {
     totalPriceCountHandler()
@@ -20,7 +16,7 @@ export const CardFooter = () => {
 
   return (
     <div className="card-footer">
-      <div className="total-price">Total: {totalPrice + '$'}</div>
+      <div className="total-price">Total: {cardTotalPrice + '$'}</div>
       <button className="btn blue pay-btn">Buy</button>
     </div>
   )
