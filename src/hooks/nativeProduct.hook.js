@@ -1,9 +1,8 @@
 import { useCallback } from "react"
 import { useHttp } from "./http.hook"
-import {production} from '../config'
 
 export const useProduct = () => {
-  const baseUrl = production + '/api/product/native'
+  const baseUrl = 'https://mern-online-shop-project.herokuapp.com/api/product/native'
   const {request, loading} = useHttp()
 
   const getProducts = useCallback(async (type) => {

@@ -1,12 +1,11 @@
 import { useCallback } from "react"
 import { useHttp } from "./http.hook"
 import { useMessage } from "./message.hook"
-import {production} from '../config'
 
 
 export const useNativeUser = () => {
-  const baseUser = production + '/api/user/interact/native/'
-  const baseProduct = production + '/api/product/native/'
+  const baseUser = 'https://mern-online-shop-project.herokuapp.com/api/user/interact/native/'
+  const baseProduct = 'https://mern-online-shop-project.herokuapp.com/api/product/native/'
   const {message} = useMessage() 
   const {request, loading} = useHttp()
 

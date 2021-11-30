@@ -1,10 +1,9 @@
 import { useCallback } from "react"
 import { useHttp } from "./http.hook"
-import {production} from '../config'
 
 
 export const useAdminProductType = token => {
-  const baseUrl = production + '/api/productType/admin'
+  const baseUrl = 'https://mern-online-shop-project.herokuapp.com/api/productType/admin'
   const {request} = useHttp()
 
   const getProductTypes = useCallback(async () => {
@@ -14,7 +13,7 @@ export const useAdminProductType = token => {
     } catch (error) {
       console.log(error)
     }
-  }, [request, token])
+  }, [baseUrl, request, token])
 
   const createProductType = useCallback(async () => {
     try {
