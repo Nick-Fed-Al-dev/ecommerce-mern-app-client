@@ -34,7 +34,7 @@ export const AuthPage = () => {
   const loginHandler = async (email, password, e) => {
     try {
       e.preventDefault()
-      const loginUrl = 'https://mern-online-shop-project.herokuapp.com/api/user/auth/login'
+      const loginUrl = '/api/user/auth/login'
       const {user} = await request(loginUrl, 'POST', {email, password})
       console.log(user)
       login(user.token, user.userId, user.role, user.tokenSignTimeSec, user.tokenDurationSec)
