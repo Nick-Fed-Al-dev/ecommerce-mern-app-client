@@ -1,9 +1,10 @@
 import { useCallback } from "react"
 import { useHttp } from "./http.hook"
+import {production} from '../config'
 
 
 export const useAdminProductType = token => {
-  const baseUrl = '/api/productType/admin'
+  const baseUrl = production + '/api/productType/admin'
   const {request} = useHttp()
 
   const getProductTypes = useCallback(async () => {

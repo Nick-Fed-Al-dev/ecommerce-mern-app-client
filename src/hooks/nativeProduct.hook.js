@@ -1,9 +1,9 @@
 import { useCallback } from "react"
 import { useHttp } from "./http.hook"
-
+import {production} from '../config'
 
 export const useProduct = () => {
-  const baseUrl = '/api/product/native'
+  const baseUrl = production + '/api/product/native'
   const {request, loading} = useHttp()
 
   const getProducts = useCallback(async (type) => {

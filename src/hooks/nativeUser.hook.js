@@ -1,11 +1,12 @@
 import { useCallback } from "react"
 import { useHttp } from "./http.hook"
 import { useMessage } from "./message.hook"
+import {production} from '../config'
 
 
 export const useNativeUser = () => {
-  const baseUser = '/api/user/interact/native/'
-  const baseProduct = '/api/product/native/'
+  const baseUser = production + '/api/user/interact/native/'
+  const baseProduct = production + '/api/product/native/'
   const {message} = useMessage() 
   const {request, loading} = useHttp()
 
@@ -19,12 +20,12 @@ export const useNativeUser = () => {
     } catch (error) {
       console.log(error)
     }    
-  }, [message, request])
+  }, [baseProduct, baseUser, message, request])
 
   const getCardProducts = useCallback(async (userId, token) => {
     const user = await request(baseUser + userId, 'GET', null, {authorization: 'Bearer ' + token})
     return user.products
-  }, [request])
+  }, [baseUser, request])
 
   const removeCardProduct = useCallback(async (productId, userId, token) => {
     try {
@@ -37,7 +38,7 @@ export const useNativeUser = () => {
     } catch (error) {
       console.log(error)
     }
-  }, [request])
+  }, [baseUser, request])
 
   return {addToCard, getCardProducts, removeCardProduct, loading}
 }

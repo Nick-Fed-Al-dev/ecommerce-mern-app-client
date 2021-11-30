@@ -3,6 +3,7 @@ import { useContext, useState } from "react"
 import { AuthContext } from "../context/AuthContext"
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
+import {production} from '../config'
 
 
 export const AuthPage = () => {
@@ -22,7 +23,7 @@ export const AuthPage = () => {
   const registrateHandler = async (email, password, e) => {
     try {
       e.preventDefault()
-      const regUrl = 'https://mern-online-shop-project.herokuapp.com/api/user/auth/registrate'
+      const regUrl = production + '/api/user/auth/registrate'
       const data = await request(regUrl, 'POST', {email, password})
       console.log(data)
       message('USER REGISTRATION SUCCESS')
@@ -34,7 +35,7 @@ export const AuthPage = () => {
   const loginHandler = async (email, password, e) => {
     try {
       e.preventDefault()
-      const loginUrl = '/api/user/auth/login'
+      const loginUrl = production + '/api/user/auth/login'
       const {user} = await request(loginUrl, 'POST', {email, password})
       console.log(user)
       login(user.token, user.userId, user.role, user.tokenSignTimeSec, user.tokenDurationSec)

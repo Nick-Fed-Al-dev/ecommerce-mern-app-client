@@ -1,9 +1,10 @@
 import { useCallback } from "react"
+import {production} from "../config"
 import { useHttp } from "./http.hook"
 
 
 export const useNativeProductType = () => {
-  const baseUrl = '/api/productType/native'
+  const baseUrl = production + '/api/productType/native'
   const {request, loading} = useHttp()
 
   const getProductTypes = useCallback(async () => {
@@ -13,7 +14,7 @@ export const useNativeProductType = () => {
     } catch (error) {
       console.log(error)
     }
-  }, [request])
+  }, [baseUrl, request])
 
   return {getProductTypes, loading}
 }
