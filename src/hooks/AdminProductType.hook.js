@@ -3,7 +3,7 @@ import { useHttp } from "./http.hook"
 
 
 export const useAdminProductType = token => {
-  const baseUrl = 'http://localhost:3030/api/productType/admin'
+  const baseUrl = 'https://mern-online-shop-project.herokuapp.com/api/productType/admin'
   const {request} = useHttp()
 
   const getProductTypes = useCallback(async () => {

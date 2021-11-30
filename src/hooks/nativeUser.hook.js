@@ -4,8 +4,8 @@ import { useMessage } from "./message.hook"
 
 
 export const useNativeUser = () => {
-  const baseUser = 'http://localhost:3030/api/user/interact/native/'
-  const baseProduct = 'http://localhost:3030/api/product/native/'
+  const baseUser = 'https://mern-online-shop-project.herokuapp.com/api/user/interact/native/'
+  const baseProduct = 'https://mern-online-shop-project.herokuapp.com/api/product/native/'
   const {message} = useMessage() 
   const {request, loading} = useHttp()
 
