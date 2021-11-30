@@ -24,7 +24,7 @@ export const CardItem = ({product}) => {
       </div>
       <div className="product-footer-btn-wrapper">
         <button onClick={removeCardProductHandler} className="btn red">Remove</button>
-        <button className="btn blue"><NavLink to={'/detail/' + product.id}>Details</NavLink></button>
+        <NavLink to={'/detail/' + product.id}><button className="btn blue">Details</button></NavLink>
       </div>
     </div>
   </div>

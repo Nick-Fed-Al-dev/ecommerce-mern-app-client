@@ -29,7 +29,7 @@ export const useNativeUser = () => {
   const removeCardProduct = useCallback(async (productId, userId, token) => {
     try {
       const user = await request(baseUser + userId, 'GET', null, {authorization: 'Bearer ' + token})
-      const elIndex = user.products.findIndex((el, i) => el._id === productId)
+      const elIndex = user.products.findIndex(el => el._id === productId)
       const newCard = user.products.filter((product, i) => elIndex !== i)
       await request(baseUser + userId, 'PATCH', {products: newCard}, {authorization: 'Bearer ' + token })
       return newCard

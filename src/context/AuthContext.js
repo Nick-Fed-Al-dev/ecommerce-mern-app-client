@@ -6,5 +6,6 @@ export const AuthContext = createContext({
   role: 'NATIVE',
   id: '',
   login: () => {},
-  logout: () => {}
+  logout: () => {},
+  isAuthenticated: false
 }) 

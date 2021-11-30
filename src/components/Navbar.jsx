@@ -5,7 +5,19 @@ import { AuthContext } from '../context/AuthContext'
 
 export const Navbar = () => {
 
-  const {logout, userRole} = useContext(AuthContext)
+  const {logout, userRole, isAuthenticated} = useContext(AuthContext)
+
+  const cardLink = isAuthenticated ? (
+    <li className="nav-item">
+      <NavLink to="/card">
+        Card
+      </NavLink>
+    </li>
+  )
+  :
+  null
+
+  const authBtn = isAuthenticated ? <button onClick={logout} className="btn blue">Logout</button> : <NavLink to="/auth"><button className="btn blue">Sign In</button></NavLink>
 
   const adminNav = userRole === 'ADMIN' ? <li className="nav-item"><NavLink to="/admin">Dashboard</NavLink></li> : null
   return (
@@ -19,11 +31,7 @@ export const Navbar = () => {
                 Main
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink to="/card">
-                Card
-              </NavLink>
-            </li>
+            {cardLink}
             <li className="nav-item">
               <NavLink to="/catalog">
                 Catalog
@@ -31,7 +39,7 @@ export const Navbar = () => {
             </li>
             {adminNav}
           </ul>
-          <button onClick={logout} className="btn blue">Logout</button>
+          {authBtn}
         </div>
       </div>
     </nav>

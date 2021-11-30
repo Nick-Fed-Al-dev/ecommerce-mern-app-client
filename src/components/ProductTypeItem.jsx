@@ -10,9 +10,11 @@ export const ProductTypeItem = ({type}) => {
       <img src={typeImage} alt="" />
       <div className="type-card-footer">
         <div>{type.title}</div>
-        <button className="btn blue lighten-2">
-          <NavLink to={'/catalog/' + type.title.toLowerCase()}>View</NavLink>
-        </button>
+        <NavLink to={'/catalog/' + type.title.toLowerCase()}>
+          <button className="btn blue">
+            View
+          </button>
+        </NavLink>
       </div>
     </div>
   )

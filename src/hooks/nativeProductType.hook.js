@@ -6,9 +6,9 @@ export const useNativeProductType = () => {
   const baseUrl = 'http://localhost:3030/api/productType/native'
   const {request, loading} = useHttp()
 
-  const getProductTypes = useCallback(async token => {
+  const getProductTypes = useCallback(async () => {
     try {
-      const data = await request(baseUrl, 'GET', null, {authorization: 'Bearer ' + token})
+      const data = await request(baseUrl)
       return data
     } catch (error) {
       console.log(error)

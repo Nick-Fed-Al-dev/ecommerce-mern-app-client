@@ -1,5 +1,5 @@
 import 'materialize-css'
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { AuthContext } from './context/AuthContext.js';
 import { NativeProductTypeContext } from './context/NativeProductTypeContext.js';
 import { useAuth } from './hooks/auth.hook.js';
@@ -16,16 +16,13 @@ function App() {
   const isAuthenticated = !!token
 
   const getProductTypesHandler = useCallback(async () => {
-    const types = await getProductTypes(token)
+    const types = await getProductTypes()
     setProductTypes(types)
     
-  }, [getProductTypes, token])
+  }, [getProductTypes])
 
   useEffect(() => {
-    if(isAuthenticated) {
       getProductTypesHandler()
-
-    }
     
   }, [getProductTypesHandler, isAuthenticated])
 
@@ -34,7 +31,7 @@ function App() {
   return (
     <NativeProductTypeContext.Provider value={{productTypes, loading}}>
     <AuthContext.Provider value={{
-      token, id: userId, role: userRole, login, logout
+      token, id: userId, role: userRole, login, logout, isAuthenticated
     }}>
       <div className="App">
         {routes}

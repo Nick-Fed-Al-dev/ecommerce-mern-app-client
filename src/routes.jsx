@@ -15,25 +15,17 @@ export const useRoutes = (isAuthenticated, productTypes, isAdmin) => {
 
   const adminRoute = isAdmin ? <Route path="/admin" element={<AdminPage />} /> : null
 
-  if(isAuthenticated){
-    return(
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        {catalogRoutes}
-        {adminRoute}
-        <Route path="/card" element={<CardPage />} />
-        <Route path="/detail/:id" element={<DetailPage />} /> 
-        <Route path="*" element={<MainPage />} />
-      </Routes>
-    )
-  }
 
-  return (
+  return(
     <Routes>
-      <Route path="/auth" element={<AuthPage />} />
-      <Route path="*" element={<AuthPage />} />
+      <Route path="/" element={<MainPage />} />
+      <Route path="/catalog" element={<CatalogPage />} />
+      {catalogRoutes}
+      {adminRoute}
+      {isAuthenticated ? <Route path="/card" element={<CardPage />} /> : null}
+      <Route path="/detail/:id" element={<DetailPage />} />
+      {isAuthenticated ? null : <Route path="/auth" element={<AuthPage />} />}
+      <Route path="*" element={<MainPage />} />
     </Routes>
   )
-
 }

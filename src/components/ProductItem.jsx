@@ -6,7 +6,7 @@ import './css/ProductItem.css'
 
 export const ProductItem = ({product}) => {
   const productImage = require('../assets/image/' + product.image).default
-  const {token, id} = useContext(AuthContext)
+  const {token, id, isAuthenticated} = useContext(AuthContext)
   const {addToCard} = useNativeUser()
 
   const addToCardHandler = () => {
@@ -22,8 +22,8 @@ export const ProductItem = ({product}) => {
           <strong className="products-info-price">{product.price + '$'}</strong>
         </div>
         <div className="product-footer-btn-wrapper">
-          <button onClick={addToCardHandler} className="btn green">Add To Card</button>
-          <button className="btn blue"><NavLink to={'/detail/' + product.id}>Details</NavLink></button>
+          {isAuthenticated ? <button onClick={addToCardHandler} className="btn green">Add To Card</button> : null}
+          <NavLink to={'/detail/' + product.id}><button className="btn blue">Details</button></NavLink>
         </div>
       </div>
     </div>

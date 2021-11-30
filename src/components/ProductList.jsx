@@ -3,7 +3,6 @@ import { NativeProductContext } from '../context/NativeProductContext'
 import { ProductItem } from './ProductItem'
 
 export const ProductList = () => {
-
   const {sorted, loading} = useContext(NativeProductContext)
 
   const productsLayout = !loading ? 

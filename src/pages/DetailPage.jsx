@@ -1,21 +1,19 @@
-import { useCallback, useContext, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useParams } from "react-router"
 import { Navbar } from "../components/Navbar"
 import { ProductDetails } from "../components/ProductDetails"
-import { AuthContext } from "../context/AuthContext"
 import {useProduct} from '../hooks/nativeProduct.hook'
 
 
 export const DetailPage = () => {
 
   const params = useParams()
-  const {token} = useContext(AuthContext)
   const [product, setProduct] = useState({})
-  const {loading, getProduct} = useProduct()
+  const {getProduct} = useProduct()
   const getProductHandler = useCallback(async () => {
-    const productFetched = await getProduct(token, params.id)
+    const productFetched = await getProduct(params.id)
     setProduct(productFetched)
-  }, [getProduct, params.id, token])
+  }, [getProduct, params.id])
 
   useEffect(() => {
     getProductHandler()

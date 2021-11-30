@@ -6,9 +6,9 @@ export const useProduct = () => {
   const baseUrl = 'http://localhost:3030/api/product/native'
   const {request, loading} = useHttp()
 
-  const getProducts = useCallback(async (token, type) => {
+  const getProducts = useCallback(async (type) => {
     try {
-      let data = await request(baseUrl, 'GET', null, {authorization: 'Bearer ' + token})
+      let data = await request(baseUrl)
       if(type) {
         data = data.filter(product => product.type === type)
       }
@@ -35,9 +35,9 @@ export const useProduct = () => {
     }
   }, [request])
 
-  const getProduct = useCallback(async (token, id) => {
+  const getProduct = useCallback(async (id) => {
     try {
-      const data = await request(baseUrl + '/' + id, 'GET', null, {authorization: 'Bearer ' + token})
+      const data = await request(baseUrl + '/' + id)
       return data
     } catch (error) { 
       console.log(error)
