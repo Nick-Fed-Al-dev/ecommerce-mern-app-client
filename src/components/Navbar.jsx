@@ -23,7 +23,7 @@ export const Navbar = () => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <div className="logo">Ecommerce App</div>
+        <div className="logo">MERN App</div>
         <div className="nav">
           <ul className="nav-list">
             <li className="nav-item">
