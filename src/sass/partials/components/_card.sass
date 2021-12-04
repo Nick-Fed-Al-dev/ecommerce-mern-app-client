@@ -1,0 +1,19 @@
+@import "../templates/horizontal"
+@import "../templates/product-item"
+
+.card-footer
+	@extend %horizontal
+	border-top: solid 1px black
+	margin-top: 10px
+	padding-top: 10px
+	margin-bottom: 40px
+	width: 100%
+
+	.card-total-price
+		font-size: x-large
+
+.card-list
+	margin-top: 40px
+
+	.card-item
+		@extend %product-item !optional

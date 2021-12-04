@@ -1,6 +1,5 @@
 import { useCallback, useContext, useEffect } from 'react'
 import { UserContext } from '../context/UserContext'
-import './css/CardFooter.css'
 
 export const CardFooter = () => {
   const {cardTotalPrice, setCardTotalPrice, cardProducts} = useContext(UserContext)
@@ -16,8 +15,8 @@ export const CardFooter = () => {
 
   return (
     <div className="card-footer">
-      <div className="total-price">Total: {cardTotalPrice + '$'}</div>
-      <button className="btn blue pay-btn">Buy</button>
+      <div className="card-total-price">Total: {cardTotalPrice + '$'}</div>
+      <button className="btn blue">Buy</button>
     </div>
   )
 }

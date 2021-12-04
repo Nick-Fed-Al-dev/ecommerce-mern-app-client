@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react'
 import { NativeProductContext } from '../context/NativeProductContext'
-import './css/SortPanel.css'
 
 export const SortPanel = () => {
   const {products , setSorted} = useContext(NativeProductContext) 
@@ -31,7 +30,7 @@ export const SortPanel = () => {
   }
 
   return (
-    <div className="sort-panel">
+    <div className="page-title sort-panel">
       <div className="price-filter">
         <div className="sort-type">Price: </div> 
           <div className="price-sort">
@@ -42,7 +41,7 @@ export const SortPanel = () => {
           </div>
       </div>
       <div className="search">
-        <div className="search-title">Search: </div>
+        <div className="sort-type">Search: </div>
         <input onChange={searchHandler}/>
       </div>
     </div>

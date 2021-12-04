@@ -1,0 +1,35 @@
+@import "../templates/horizontal"
+
+.header-wrapper
+	@extend %horizontal
+	margin-left: 120px
+	margin-right: 120px
+
+	.header-logo
+		font-size: x-large
+
+	.burger
+		width: 70px
+		height: 60px
+		display: none
+		background-color: inherit
+		border: none
+
+		svg
+			fill: black
+
+		&:active
+
+			svg
+				fill: white
+
+	.header-control
+		@extend %horizontal
+		width: 400px
+
+		.nav-list
+
+			*
+				font-size: medium
+				margin-right: 10px
+

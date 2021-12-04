@@ -34,7 +34,8 @@ export const CardPage = () => {
     }}>
     <div>
       <Navbar />
-      <div className="container">
+      <div className="container products-list-wrapper">
+        <h2 className="page-title">Your Card</h2>
         <Card />
         {cardProducts.length ? <CardFooter /> : null}
       </div>

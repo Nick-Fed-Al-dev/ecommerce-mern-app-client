@@ -14,7 +14,7 @@ export const Card = () => {
   <div>No Products</div>
 
   return (
-    <ul>
+    <ul className="products-list card-list">
       {cardProductsLayout}
     </ul>
   )

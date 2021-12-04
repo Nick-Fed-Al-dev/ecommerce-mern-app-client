@@ -12,7 +12,7 @@ export const ProductList = () => {
   :
   <div>Loading...</div>
   return (
-    <ul>
+    <ul className="products-list main-product-list">
       {productsLayout}
     </ul>
   )

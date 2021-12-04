@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import './css/ProductTypesList.css'
 import { NativeProductTypeContext } from '../context/NativeProductTypeContext'
 import { ProductTypeItem } from './ProductTypeItem'
 
@@ -13,10 +12,8 @@ export const ProductTypeList = () => {
   <div>Loading...</div>
 
   return (
-    <div className="container type-list-wrapper">
-      <ul>
-        {typesListLayout}
-      </ul>
-    </div>
+    <ul className="products-list">
+      {typesListLayout}
+    </ul>
   )
 }

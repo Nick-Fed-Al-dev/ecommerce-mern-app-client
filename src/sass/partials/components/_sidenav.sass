@@ -1,0 +1,17 @@
+@import "../templates/side-el"
+
+.side-nav
+	display: flex
+	flex-direction: column
+	position: absolute
+	top: 57px
+	bottom: 0
+	width: inherit
+
+	ul
+		height: inherit
+		display: flex
+		flex-direction: column
+
+		*
+			@extend %side-el !optional

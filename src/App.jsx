@@ -5,11 +5,13 @@ import { NativeProductTypeContext } from './context/NativeProductTypeContext.js'
 import { useAuth } from './hooks/auth.hook.js';
 import { useNativeProductType } from './hooks/nativeProductType.hook.js';
 import { useRoutes } from "./routes.jsx";
+import {NavContext} from "./context/NavContext";
 
 
 function App() {
   const {token, userId, userRole, login, logout} = useAuth()
   const {getProductTypes, loading} = useNativeProductType()
+  const [navOpened, setNavOpened] = useState(false)
 
   const [productTypes, setProductTypes] = useState([])
 
@@ -29,6 +31,7 @@ function App() {
   const routes = useRoutes(isAuthenticated, productTypes.map(type => type.name), userRole === 'ADMIN')
   
   return (
+    <NavContext.Provider value={{isOpen: navOpened, setIsOpen: setNavOpened}}>
     <NativeProductTypeContext.Provider value={{productTypes, loading}}>
     <AuthContext.Provider value={{
       token, id: userId, role: userRole, login, logout, isAuthenticated
@@ -38,6 +41,7 @@ function App() {
       </div>
     </AuthContext.Provider>
     </NativeProductTypeContext.Provider>
+    </NavContext.Provider>
   );
 }
 

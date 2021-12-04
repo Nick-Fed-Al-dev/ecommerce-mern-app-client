@@ -1,0 +1,37 @@
+@import "./horizontal"
+
+%product-item
+	display: flex
+	flex-direction: column
+	margin-bottom: 40px
+	border-bottom: black solid 1px
+
+	img
+		width: 380px
+		height: 230px
+
+	.product-footer
+		display: flex
+		flex-direction: column
+		padding: 10px
+
+		.type-interact
+			@extend %horizontal
+
+			.type-title
+				font-size: larger
+
+		.product-info
+			@extend %horizontal
+			margin-bottom: 20px
+
+			.product-info-title
+				font-size: x-large
+				font-weight: 400
+
+			.product-info-price
+				font-size: x-large
+
+		.product-btn-wrapper
+			@extend %horizontal
+			margin-bottom: 20px
