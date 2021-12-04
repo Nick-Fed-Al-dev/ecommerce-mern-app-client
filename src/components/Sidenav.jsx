@@ -17,9 +17,9 @@ export const Sidenav = () => {
 		null
 
 	const authBtn = isAuthenticated ?
-		<button onClick={logout} className="btn blue">Sign Out</button>
+		<button onClick={logout} className="btn blue auth-btn">Sign Out</button>
 		:
-		<NavLink to="/auth"><button className="btn blue">Sign In</button></NavLink>
+		<NavLink to="/auth"><button className="btn blue auth-btn">Sign In</button></NavLink>
 
 	const adminNav = userRole === 'ADMIN' ?
 		<li className="nav-item">
@@ -43,8 +43,11 @@ export const Sidenav = () => {
 					</NavLink>
 				</li>
 				{adminNav}
+				<li>
+					{authBtn}
+				</li>
 			</ul>
-			{authBtn}
+
 		</div>
 	)
 }

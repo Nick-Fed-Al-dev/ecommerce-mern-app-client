@@ -3,15 +3,18 @@
 .side-nav
 	display: flex
 	flex-direction: column
-	position: absolute
-	top: 57px
-	bottom: 0
 	width: inherit
 
 	ul
+		position: absolute
 		height: inherit
+		top: 57px
+		width: inherit
 		display: flex
 		flex-direction: column
+
+		.auth-btn
+			color: white
 
 		*
 			@extend %side-el !optional

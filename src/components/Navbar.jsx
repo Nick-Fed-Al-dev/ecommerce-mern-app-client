@@ -37,11 +37,6 @@ export const Navbar = () => {
   :
   null
 
-  useEffect(() => {
-    console.log(isOpen)
-
-  }, [isOpen])
-
   return (
     <nav className="header">
       <div className="header-wrapper">
