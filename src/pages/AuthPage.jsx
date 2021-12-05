@@ -35,6 +35,7 @@ export const AuthPage = () => {
       e.preventDefault()
       const loginUrl = 'https://mern-online-shop-project.herokuapp.com/api/user/auth/login'
       const data = await request(loginUrl, 'POST', {email, password})
+
       if(error){
         clearError()
         return

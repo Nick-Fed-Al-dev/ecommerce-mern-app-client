@@ -4,7 +4,7 @@ import {AuthContext} from "../context/AuthContext";
 
 
 export const Sidenav = () => {
-	const {logout, userRole, isAuthenticated} = useContext(AuthContext)
+	const {logout, role, isAuthenticated} = useContext(AuthContext)
 
 	const cardLink = isAuthenticated ? (
 			<li className="nav-item">
@@ -21,7 +21,7 @@ export const Sidenav = () => {
 		:
 		<NavLink to="/auth"><button className="btn blue auth-btn">Sign In</button></NavLink>
 
-	const adminNav = userRole === 'ADMIN' ?
+	const adminNav = role === 'ADMIN' ?
 		<li className="nav-item">
 			<NavLink to="/admin">Dashboard</NavLink>
 		</li>

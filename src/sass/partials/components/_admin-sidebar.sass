@@ -1,0 +1,22 @@
+@import "../templates/admin-nav-item"
+
+.admin-sidebar
+	width: 25%
+	height: 100%
+	border-right: black 1px solid
+	position: fixed
+
+
+	.routes-list
+		width: 100%
+		height: inherit
+		display: flex
+		flex-direction: column
+		margin-top: 0px
+
+		a
+			@extend %admin-nav-item
+
+.chosen
+	background-color: #e6e6e6
+	border-bottom: solid black 1px

@@ -6,7 +6,7 @@ import {Sidenav} from "./Sidenav";
 
 export const Navbar = () => {
 
-  const {logout, userRole, isAuthenticated} = useContext(AuthContext)
+  const {logout, role, isAuthenticated} = useContext(AuthContext)
 
   const {isOpen, setIsOpen} = useContext(NavContext)
 
@@ -25,7 +25,7 @@ export const Navbar = () => {
   :
   <NavLink to="/auth"><button className="btn blue">Sign In</button></NavLink>
 
-  const adminNav = userRole === 'ADMIN' ?
+  const adminNav = role === 'ADMIN' ?
   <li className="nav-item">
     <NavLink to="/admin">Dashboard</NavLink>
   </li> 

@@ -13,8 +13,11 @@ export const useRoutes = (isAuthenticated, productTypes, isAdmin) => {
     )
   })
 
-  const adminRoute = isAdmin ? <Route path="/admin" element={<AdminPage />} /> : null
-
+  const adminRoute = isAdmin ? [
+    <Route key="1" path="/admin/*" element={<AdminPage page={'Products'} />} />,
+    <Route key="2" path="/admin/users" element={<AdminPage page={'Users'}/>} />,
+    <Route key="3" path="/admin/categories" element={<AdminPage page={'Categories'}/>} />
+  ] : null
 
   return(
     <Routes>
