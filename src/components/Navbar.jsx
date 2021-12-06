@@ -20,7 +20,7 @@ export const Navbar = () => {
   null
 
   const authBtn = isAuthenticated ?
-    <NavLink to="/auth"><button onClick={logout} className="btn blue">Sign Out</button></NavLink>
+  <NavLink to="/auth"><button onClick={logout} className="btn blue">Sign Out</button></NavLink>
   :
   <NavLink to="/auth"><button className="btn blue">Sign In</button></NavLink>
 

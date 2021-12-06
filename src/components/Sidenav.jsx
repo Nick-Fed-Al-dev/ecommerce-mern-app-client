@@ -21,7 +21,7 @@ export const Sidenav = () => {
 		null
 
 	const authBtn = isAuthenticated ?
-		<button onClick={() => {logout(); closeNavHandler()}} className="btn blue auth-btn">Sign Out</button>
+		<NavLink to="/auth"><button onClick={() => {logout(); closeNavHandler()}} className="btn blue auth-btn">Sign Out</button></NavLink>
 		:
 		<NavLink to="/auth"><button onClick={closeNavHandler} className="btn blue auth-btn">Sign In</button></NavLink>
 
