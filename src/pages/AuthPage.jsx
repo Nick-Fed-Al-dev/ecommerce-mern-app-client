@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { AuthContext } from "../context/AuthContext"
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
+import {Navbar} from "../components/Navbar";
 
 
 export const AuthPage = () => {
@@ -47,6 +48,8 @@ export const AuthPage = () => {
   }
 
   return (
+    <div>
+    <Navbar />
     <div className="container form-wrapper">
         <h2 className="form-title">Sign In</h2>
         <form className="auth-form">
@@ -63,6 +66,7 @@ export const AuthPage = () => {
               <button onClick={loginHandler.bind(null, form.email, form.password)} className="btn blue login-btn">Login</button>
             </div>
         </form>
+    </div>
     </div>
   )
 }

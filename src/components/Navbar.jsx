@@ -1,5 +1,5 @@
-import React, {useContext, useEffect} from 'react'
-import { NavLink } from 'react-router-dom'
+import React, {useContext} from 'react'
+import {NavLink} from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 import {NavContext} from "../context/NavContext";
 import {Sidenav} from "./Sidenav";
@@ -7,7 +7,6 @@ import {Sidenav} from "./Sidenav";
 export const Navbar = () => {
 
   const {logout, role, isAuthenticated} = useContext(AuthContext)
-
   const {isOpen, setIsOpen} = useContext(NavContext)
 
   const cardLink = isAuthenticated ? (
@@ -21,7 +20,7 @@ export const Navbar = () => {
   null
 
   const authBtn = isAuthenticated ?
-  <button onClick={logout} className="btn blue">Sign Out</button> 
+    <NavLink to="/auth"><button onClick={logout} className="btn blue">Sign Out</button></NavLink>
   :
   <NavLink to="/auth"><button className="btn blue">Sign In</button></NavLink>
 
