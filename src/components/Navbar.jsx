@@ -12,7 +12,7 @@ export const Navbar = () => {
   const cardLink = isAuthenticated ? (
     <li className="nav-item">
       <NavLink to="/card">
-        Card
+        Корзина
       </NavLink>
     </li>
   )
@@ -20,13 +20,13 @@ export const Navbar = () => {
   null
 
   const authBtn = isAuthenticated ?
-  <NavLink to="/auth"><button onClick={logout} className="btn blue">Sign Out</button></NavLink>
+  <NavLink to="/auth"><i onClick={logout} className="material-icons auth-icon">logout</i></NavLink>
   :
-  <NavLink to="/auth"><button className="btn blue">Sign In</button></NavLink>
+  <NavLink to="/auth"><i className="material-icons auth-icon">login</i></NavLink>
 
   const adminNav = role === 'ADMIN' ?
   <li className="nav-item">
-    <NavLink to="/admin">Dashboard</NavLink>
+    <NavLink to="/admin">Дэшборд</NavLink>
   </li> 
   :
   null
@@ -37,20 +37,20 @@ export const Navbar = () => {
   null
 
   return (
-    <nav className="header">
+    <nav className="header black">
       <div className="header-wrapper">
-        <div className="header-logo">Ecommerce App</div>
+        <NavLink to="/"><div className="header-logo">Ecommerce App</div></NavLink>
         <div className="header-control">
           <ul className="nav-list">
             <li className="nav-item">
               <NavLink to="/">
-                Main
+                Главная
               </NavLink>
             </li>
             {cardLink}
             <li className="nav-item">
               <NavLink to="/catalog">
-                Catalog
+                Каталог
               </NavLink>
             </li>
             {adminNav}

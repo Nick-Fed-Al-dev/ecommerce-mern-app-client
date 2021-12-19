@@ -11,8 +11,8 @@ export const ProductTypeItem = ({type}) => {
         <div className="type-interact">
           <div className="type-title">{type.title}</div>
             <NavLink to={'/catalog/' + type.title.toLowerCase()}>
-              <button className="btn blue">
-                View
+              <button className="btn deep-purple accent-3">
+                Смотреть
               </button>
             </NavLink>
           </div>

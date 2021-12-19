@@ -32,16 +32,16 @@ export const SortPanel = () => {
   return (
     <div className="page-title sort-panel">
       <div className="price-filter">
-        <div className="sort-type">Price: </div> 
+        <div className="sort-type">Цена: </div> 
           <div className="price-sort">
-            from &nbsp;
+            от &nbsp;
             <input name="minPrice" value={priceRange.minPrice} onChange={priceRangeChangeHandler} onBlur={productListPriceFilterHandler} /> 
-            &nbsp; to &nbsp; 
+            &nbsp; до &nbsp; 
             <input name="maxPrice" value={priceRange.maxPrice} onChange={priceRangeChangeHandler} onBlur={productListPriceFilterHandler} /> 
           </div>
       </div>
       <div className="search">
-        <div className="sort-type">Search: </div>
+        <div className="sort-type">Поиск: </div>
         <input onChange={searchHandler}/>
       </div>
     </div>

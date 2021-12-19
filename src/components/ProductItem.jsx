@@ -1,16 +1,11 @@
 import React, { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
-import { useNativeUser } from '../hooks/nativeUser.hook'
+import { AddToCardBtn } from './AddToCardBtn'
+import { DetailBtn } from './DetailBtn'
 
 export const ProductItem = ({product}) => {
   const productImage = require('../assets/image/' + product.image).default
-  const {token, id, isAuthenticated} = useContext(AuthContext)
-  const {addToCard} = useNativeUser()
-
-  const addToCardHandler = () => {
-    addToCard(product.id, id, token)
-  }
+  const {isAuthenticated} = useContext(AuthContext)
 
   return (
     <div id={product.id} className="product-item">
@@ -21,8 +16,8 @@ export const ProductItem = ({product}) => {
           <strong className="product-info-price">{product.price + '$'}</strong>
         </div>
         <div className="product-btn-wrapper">
-          {isAuthenticated ? <button onClick={addToCardHandler} className="btn green">Add To Card</button> : null}
-          <NavLink to={'/detail/' + product.id}><button className="btn blue">Details</button></NavLink>
+          {isAuthenticated ? <AddToCardBtn product={product}/> : null}
+          <DetailBtn product={product}/>
         </div>
       </div>
     </div>

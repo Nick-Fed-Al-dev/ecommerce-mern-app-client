@@ -13,7 +13,7 @@ export const Sidenav = () => {
 	const cardLink = isAuthenticated ? (
 			<li onClick={closeNavHandler} className="nav-item">
 				<NavLink to="/card">
-					Card
+					Корзина
 				</NavLink>
 			</li>
 		)
@@ -21,13 +21,13 @@ export const Sidenav = () => {
 		null
 
 	const authBtn = isAuthenticated ?
-		<NavLink to="/auth"><button onClick={() => {logout(); closeNavHandler()}} className="btn blue auth-btn">Sign Out</button></NavLink>
+		<NavLink to="/auth"><button onClick={() => {logout(); closeNavHandler()}} className="btn blue auth-btn">Выйти</button></NavLink>
 		:
-		<NavLink to="/auth"><button onClick={closeNavHandler} className="btn blue auth-btn">Sign In</button></NavLink>
+		<NavLink to="/auth"><button onClick={closeNavHandler} className="btn blue auth-btn">Войти</button></NavLink>
 
 	const adminNav = role === 'ADMIN' ?
 		<li onClick={closeNavHandler} className="nav-item">
-			<NavLink to="/admin">Dashboard</NavLink>
+			<NavLink to="/admin">Панель Администратора</NavLink>
 		</li>
 		:
 		null
@@ -37,13 +37,13 @@ export const Sidenav = () => {
 			<ul className="nav-list">
 				<li onClick={closeNavHandler} className="nav-item">
 					<NavLink to="/">
-						Main
+						Главная
 					</NavLink>
 				</li>
 				{cardLink}
 				<li onClick={closeNavHandler} className="nav-item">
 					<NavLink to="/catalog">
-						Catalog
+						Каталог
 					</NavLink>
 				</li>
 				{adminNav}

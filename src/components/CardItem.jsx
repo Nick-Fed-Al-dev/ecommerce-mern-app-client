@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 import { UserContext } from '../context/UserContext'
 import { useNativeUser } from '../hooks/nativeUser.hook'
+import { DetailBtn } from './DetailBtn'
  
 export const CardItem = ({product}) => {
   const productImage = require('../assets/image/' + product.image).default
@@ -25,8 +25,8 @@ export const CardItem = ({product}) => {
           <strong className="product-info-price">{product.price + '$'}</strong>
         </div>
           <div className="product-btn-wrapper">
-          <button onClick={removeCardProductHandler} className="btn red">Remove</button>
-          <NavLink to={'/detail/' + product.id}><button className="btn blue">Details</button></NavLink>
+          <button onClick={removeCardProductHandler} className="btn red">Убрать</button>
+          <DetailBtn product={product} />
         </div>
     </div>
   </div>

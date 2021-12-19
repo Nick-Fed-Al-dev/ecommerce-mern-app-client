@@ -1,14 +1,12 @@
 import { useContext } from 'react'
-import {useNativeUser} from '../hooks/nativeUser.hook'
 import { AuthContext } from '../context/AuthContext'
+import { NavLink } from 'react-router-dom'
+import { AddToCardBtn } from './AddToCardBtn'
 
 export const ProductDetails = ({product}) => {
   const image = require('../assets/image/' + product.image).default
-  const {id, token, isAuthenticated} = useContext(AuthContext)
-  const {addToCard} = useNativeUser()
+  const {isAuthenticated} = useContext(AuthContext)
   const propsLayout = product.props.map((prop, i) => <li className="product-detail-properties-item" key={i}>{prop.type}: {prop.value}</li>)
-
-  const addToCardHandler = () => addToCard(product.id, id, token)
 
   return (
     <div className="product-detail">
@@ -17,14 +15,15 @@ export const ProductDetails = ({product}) => {
         <div className="product-detail-name">{product.title}</div>
         <div className="product-detail-price">{product.price}$</div>
       </div>
-      <div className="product-detail-title product-detail-desccription-title">Description</div>
+      <div className="product-detail-title product-detail-desccription-title">Описание</div>
       <div className="product-detail-description">{product.desc}</div>
-      <div className="product-detail-title product-detail-properties-title">Characteristics</div>
+      <div className="product-detail-title product-detail-properties-title">Характеристики</div>
       <ul className="product-detail-properties-list">
         {propsLayout}
       </ul>
       <div className="product-detail-footer">
-        {isAuthenticated ? <button onClick={addToCardHandler} className="btn blue add-to-card-btn">Add to Card</button> : null}
+        {isAuthenticated ? <AddToCardBtn product={product}/> : null}
+        <NavLink to="/"><button className="btn red">на Главную</button></NavLink>
       </div>
     </div>
   )
