@@ -21,9 +21,9 @@ export const Sidenav = () => {
 		null
 
 	const authBtn = isAuthenticated ?
-		<NavLink to="/auth"><button onClick={() => {logout(); closeNavHandler()}} className="btn blue auth-btn">Выйти</button></NavLink>
+		<NavLink to="/auth"><button onClick={() => {logout(); closeNavHandler()}} className="btn deep-purple accent-3 auth-btn">Выйти</button></NavLink>
 		:
-		<NavLink to="/auth"><button onClick={closeNavHandler} className="btn blue auth-btn">Войти</button></NavLink>
+		<NavLink to="/auth"><button onClick={closeNavHandler} className="btn deep-purple accent-3 auth-btn">Войти</button></NavLink>
 
 	const adminNav = role === 'ADMIN' ?
 		<li onClick={closeNavHandler} className="nav-item">

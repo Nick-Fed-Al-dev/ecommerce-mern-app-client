@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext"
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
 import {Navbar} from "../components/Navbar";
+import { NavContext } from "../context/NavContext";
 
 
 export const AuthPage = () => {
@@ -11,6 +12,7 @@ export const AuthPage = () => {
     password: ''
   })
   const {login} = useContext(AuthContext)
+  const {setIsOpen} = useContext(NavContext)
   const {request, error, clearError} = useHttp()
   const {message} = useMessage()
 
@@ -44,6 +46,7 @@ export const AuthPage = () => {
       message(data.message)
       const user = data.user
       login(user.token, user.userId, user.role, user.tokenSignTimeSec, user.tokenDurationSec)
+      setIsOpen(false)
     } catch (error) {}
   }
 
@@ -62,8 +65,8 @@ export const AuthPage = () => {
               <label htmlFor="password">Password</label>
             </div>
             <div className="form-btn-wrapper">
-              <button onClick={registrateHandler.bind(null, form.email, form.password)} className="btn green register-btn">Register</button>
-              <button onClick={loginHandler.bind(null, form.email, form.password)} className="btn blue login-btn">Login</button>
+              <button onClick={registrateHandler.bind(null, form.email, form.password)} className="btn deep-purple accent-3 register-btn">Register</button>
+              <button onClick={loginHandler.bind(null, form.email, form.password)} className="btn black login-btn">Login</button>
             </div>
         </form>
     </div>
