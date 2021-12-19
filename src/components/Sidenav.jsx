@@ -1,17 +1,13 @@
 import {NavLink} from "react-router-dom";
 import React, {useContext} from "react";
 import {AuthContext} from "../context/AuthContext";
-import {NavContext} from "../context/NavContext";
 
 
 export const Sidenav = () => {
 	const {logout, role, isAuthenticated} = useContext(AuthContext)
-	const {setIsOpen} = useContext(NavContext)
-
-	const closeNavHandler = () => setIsOpen(false)
 
 	const cardLink = isAuthenticated ? (
-			<li onClick={closeNavHandler} className="nav-item">
+			<li className="nav-item">
 				<NavLink to="/card">
 					Корзина
 				</NavLink>
@@ -21,12 +17,12 @@ export const Sidenav = () => {
 		null
 
 	const authBtn = isAuthenticated ?
-		<NavLink to="/auth"><button onClick={() => {logout(); closeNavHandler()}} className="btn deep-purple accent-3 auth-btn">Выйти</button></NavLink>
+		<NavLink to="/auth"><button onClick={logout} className="btn deep-purple accent-3 auth-btn">Выйти</button></NavLink>
 		:
-		<NavLink to="/auth"><button onClick={closeNavHandler} className="btn deep-purple accent-3 auth-btn">Войти</button></NavLink>
+		<NavLink to="/auth"><button className="btn deep-purple accent-3 auth-btn">Войти</button></NavLink>
 
 	const adminNav = role === 'ADMIN' ?
-		<li onClick={closeNavHandler} className="nav-item">
+		<li className="nav-item">
 			<NavLink to="/admin">Панель Администратора</NavLink>
 		</li>
 		:
@@ -35,13 +31,13 @@ export const Sidenav = () => {
 	return (
 		<div className="side-nav">
 			<ul className="nav-list">
-				<li onClick={closeNavHandler} className="nav-item">
+				<li className="nav-item">
 					<NavLink to="/">
 						Главная
 					</NavLink>
 				</li>
 				{cardLink}
-				<li onClick={closeNavHandler} className="nav-item">
+				<li className="nav-item">
 					<NavLink to="/catalog">
 						Каталог
 					</NavLink>

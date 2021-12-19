@@ -10,7 +10,7 @@ export const ProductTypeItem = ({type}) => {
       <div className="product-footer">
         <div className="type-interact">
           <div className="type-title">{type.title}</div>
-            <NavLink to={'/catalog/' + type.title.toLowerCase()}>
+            <NavLink to={'/catalog/' + type.eng.toLowerCase()}>
               <button className="btn deep-purple accent-3">
                 Смотреть
               </button>

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { NativeProductContext } from '../context/NativeProductContext'
+import { Loader } from './Loader'
 import { ProductItem } from './ProductItem'
 
 export const ProductList = () => {
@@ -10,7 +11,7 @@ export const ProductList = () => {
     return <ProductItem key={i} product={{title: product.title, price: product.price, image: product.image, type: product.type, id: product._id}} />
 })
   :
-  <div>Loading...</div>
+  <Loader />
   return (
     <ul className="products-list main-product-list">
       {productsLayout}

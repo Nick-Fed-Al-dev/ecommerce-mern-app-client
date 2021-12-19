@@ -13,6 +13,17 @@ function App() {
   const {getProductTypes, loading} = useNativeProductType()
   const [navOpened, setNavOpened] = useState(false)
 
+  const navCloseHandler = e => {
+    if(
+      !e.target.classList.contains('burger')
+      &&
+      !e.target.parentNode.classList.contains('burger')
+      &&
+      !e.target.parentNode.parentNode.classList.contains('burger')
+      )
+    setNavOpened(false)
+  }
+
   const [productTypes, setProductTypes] = useState([])
 
   const isAuthenticated = !!token
@@ -28,7 +39,7 @@ function App() {
     
   }, [getProductTypesHandler, isAuthenticated])
 
-  const routes = useRoutes(isAuthenticated, productTypes.map(type => type.name), userRole === 'ADMIN')
+  const routes = useRoutes(isAuthenticated, productTypes.map(type => type.eng), userRole === 'ADMIN')
   
   return (
     <NavContext.Provider value={{isOpen: navOpened, setIsOpen: setNavOpened}}>
@@ -36,7 +47,7 @@ function App() {
     <AuthContext.Provider value={{
       token, id: userId, role: userRole, login, logout, isAuthenticated
     }}>
-      <div className="App">
+      <div className="App" onClick={navCloseHandler}>
         {routes}
       </div>
     </AuthContext.Provider>

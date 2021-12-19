@@ -34,7 +34,7 @@ export const DetailPage = () => {
     <div>
       <Navbar />
       <div className="container">
-        <div className="page-title">Product Detail</div>
+        <div className="page-title">Подробности</div>
         {productDetails}
       </div>
     </div>

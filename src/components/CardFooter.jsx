@@ -15,8 +15,8 @@ export const CardFooter = () => {
 
   return (
     <div className="card-footer">
-      <div className="card-total-price">Total: {cardTotalPrice + '$'}</div>
-      <button className="btn blue">Buy</button>
+      <div className="card-total-price">Стоимость: {cardTotalPrice + '$'}</div>
+      <button className="btn deep-purple accent-3">Оформить Заказ</button>
     </div>
   )
 }

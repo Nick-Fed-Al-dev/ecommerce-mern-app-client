@@ -9,7 +9,7 @@ export const CatalogPage = () => {
     <div>
       <Navbar />
       <div className="container products-list-wrapper">
-        <div className="page-title">Categories</div>
+        <div className="page-title">Каталог</div>
         <ProductTypeList />
       </div>
     </div>
