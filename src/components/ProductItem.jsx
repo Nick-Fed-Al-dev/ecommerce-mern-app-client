@@ -16,7 +16,13 @@ export const ProductItem = ({product}) => {
           <strong className="product-info-price">{product.price + '$'}</strong>
         </div>
         <div className="product-btn-wrapper">
-          {isAuthenticated ? <AddToCardBtn product={product}/> : null}
+          {
+           isAuthenticated 
+           ?
+           <AddToCardBtn product={product}/> 
+           : 
+           null
+           }
           <DetailBtn product={product}/>
         </div>
       </div>

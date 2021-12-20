@@ -1,25 +1,22 @@
 import { useCallback } from "react"
 import { useHttp } from "./http.hook"
-import { useMessage } from "./message.hook"
-
 
 export const useNativeUser = () => {
   const baseUser = 'https://mern-online-shop-project.herokuapp.com/api/user/interact/native/'
   const baseProduct = 'https://mern-online-shop-project.herokuapp.com/api/product/native/'
-  const {message} = useMessage() 
   const {request, loading} = useHttp()
 
   const addToCard = useCallback(async (productId, userId, token) => {
     try {
       const product = await request(baseProduct + productId, 'GET', null, {authorization: 'Bearer ' + token})
       const user = await request(baseUser + userId, 'GET', null, {authorization: 'Bearer ' + token})
-      const data = await request(baseUser + userId, 'PATCH', {products: [...user.products, product]}, {authorization: 'Bearer ' + token})
-      message('PRODUCT WAS ADDED TO CARD')
-      return data
+      await request(baseUser + userId, 'PATCH', {products: [...user.products, product]}, {authorization: 'Bearer ' + token})
+      const newCard = [...user.products, product]
+      return newCard
     } catch (error) {
       console.log(error)
     }    
-  }, [baseProduct, baseUser, message, request])
+  }, [baseProduct, baseUser, request])
 
   const getCardProducts = useCallback(async (userId, token) => {
     const user = await request(baseUser + userId, 'GET', null, {authorization: 'Bearer ' + token})

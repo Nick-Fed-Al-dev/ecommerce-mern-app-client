@@ -10,7 +10,7 @@ import { useNativeUser } from "../hooks/nativeUser.hook"
 export const CardPage = () => {
   const [cardProducts, setCardProducts] = useState([])
   const {token, id} = useContext(AuthContext)
-  const {getCardProducts, removeCardProduct, loading} = useNativeUser()
+  const {getCardProducts, removeCardProduct, addToCard, loading} = useNativeUser()
   const [cardTotalPrice, setCardTotalPrice] = useState(0)
 
   const getCardProductsHandler = useCallback(async () => {
@@ -30,6 +30,7 @@ export const CardPage = () => {
       setCardTotalPrice,
       getCardProducts,
       removeCardProduct,
+      addToCard,
       loading
     }}>
     <div>

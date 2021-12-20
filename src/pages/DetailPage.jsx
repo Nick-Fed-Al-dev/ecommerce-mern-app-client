@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
 import { useParams } from "react-router"
+import { Loader } from "../components/Loader"
 import { Navbar } from "../components/Navbar"
 import { ProductDetails } from "../components/ProductDetails"
 import {useProduct} from '../hooks/nativeProduct.hook'
@@ -28,7 +29,7 @@ export const DetailPage = () => {
     id: product._id
   }} />
   :
-  <div>Loading...</div>
+  <Loader />
 
   return (
     <div>

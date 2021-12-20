@@ -8,5 +8,6 @@ export const UserContext = createContext({
   setCardTotalPrice: () => {},
   removeCardProduct: () => {},
   getCardProducts: () => {},
+  addToCard: () => {},
   loading: false
 })

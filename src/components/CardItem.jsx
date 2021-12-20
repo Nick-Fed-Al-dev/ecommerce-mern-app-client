@@ -1,20 +1,8 @@
-import React, { useContext } from 'react'
-import { AuthContext } from '../context/AuthContext'
-import { UserContext } from '../context/UserContext'
-import { useNativeUser } from '../hooks/nativeUser.hook'
+import { CardItemCounter } from './CardItemCounter'
 import { DetailBtn } from './DetailBtn'
  
 export const CardItem = ({product}) => {
   const productImage = require('../assets/image/' + product.image).default
-  const {token, id} = useContext(AuthContext)
-  const {removeCardProduct} = useNativeUser()
-
-  const {setCardProducts} = useContext(UserContext)
-
-  const removeCardProductHandler = async () => {
-    const newCard = await removeCardProduct(product.id, id, token)
-    setCardProducts(newCard)
-  }
 
   return (
     <div id={product.id} className="product-item card-item">
@@ -25,7 +13,7 @@ export const CardItem = ({product}) => {
           <strong className="product-info-price">{product.price + '$'}</strong>
         </div>
           <div className="product-btn-wrapper">
-          <button onClick={removeCardProductHandler} className="btn red">Убрать</button>
+          <CardItemCounter product={product}/>
           <DetailBtn product={product} />
         </div>
     </div>
