@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
 import { Navbar } from "../components/Navbar"
+import { Pagination } from "../components/Pagination"
 import { ProductList } from "../components/ProductList"
 import { SortPanel } from "../components/SortPanel"
 import { NativeProductContext } from "../context/NativeProductContext"
@@ -8,15 +9,21 @@ import { useProduct } from "../hooks/nativeProduct.hook"
 
 export const MainPage = ({productType}) => {
   const {getProducts, loading} = useProduct()
+  const [productPage, setProductPage] = useState(1)
   const [products, setProducts] = useState([])
+  const [isSorted, setIsSorted] = useState(false)
   const [sorted, setSorted] = useState([])
+  const [allProducts, setAllProducts] = useState([])
 
   const getProductsHandler = useCallback(async () => {
-    const data = await getProducts(productType)
+    const data = await getProducts(productType, productPage)
+    const allProd = await getProducts()
+    
     setProducts(data)
     setSorted(data)
+    setAllProducts(allProd)
     
-  }, [getProducts, productType, setProducts, setSorted])
+  }, [getProducts, productPage, productType])
 
   useEffect(() => {
     getProductsHandler()
@@ -24,12 +31,13 @@ export const MainPage = ({productType}) => {
 
   return (
     <NativeProductContext.Provider value={{
-      products, sorted, setSorted, loading
+      products, sorted, setSorted, loading, productPage, setProductPage, isSorted, setIsSorted
     }}>
     <div>
       <Navbar /> 
       <div className="container products-list-wrapper">
-        <SortPanel />
+        <SortPanel allProducts={isSorted ? sorted : allProducts}/>
+        {allProducts.length ? <Pagination products={isSorted ? sorted : allProducts} /> : null}
         <ProductList />
       </div>
     </div>
