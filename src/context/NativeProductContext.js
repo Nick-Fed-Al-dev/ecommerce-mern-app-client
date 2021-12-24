@@ -9,5 +9,8 @@ export const NativeProductContext = createContext({
   setProductPage: () => {},
   isSorted: false,
   setIsSorted: () => {},
-  loading: false
+  loading: false,
+  allProducts: [],
+  isNotFound: false,
+  setIsNotFound: () => {}
 })

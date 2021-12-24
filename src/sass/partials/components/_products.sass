@@ -2,10 +2,14 @@
 @import "../templates/product-item"
 
 .products-list
-	@extend %product-list !optional
+	@extend %product-list 
 
 	.product-item
-		@extend %product-item !optional
+		@extend %product-item
+		
 
 .main-product-list
 	margin-top: 40px
+
+.is-not-found
+	justify-content: center !important	

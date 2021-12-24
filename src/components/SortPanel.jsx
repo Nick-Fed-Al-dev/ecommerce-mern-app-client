@@ -1,23 +1,33 @@
 import { useContext, useState } from 'react'
 import { NativeProductContext } from '../context/NativeProductContext'
 
-export const SortPanel = ({allProducts}) => {
-  const {products , sorted, setSorted, setIsSorted, isSorted} = useContext(NativeProductContext) 
+export const SortPanel = ({length}) => {
+  const {setSorted, setIsSorted, products, allProducts, setIsNotFound} = useContext(NativeProductContext) 
+  const [searchText, setSearchText] = useState('')
 
-  const searchHandler = e => {
-    const target = e.target
-    target.value.length ? setIsSorted(true) : setIsSorted(false)
-    
-    const filtred = products.filter(product => product.title.includes(target.value))
-    setSorted(filtred)
+  const searchTextHandler = e => {
+    setSearchText(e.target.value)
+  }
+
+  const searchHandler = (e) => {
+    const textExists = searchText.length
+    textExists ? setIsSorted(true) : setIsSorted(false)
+    textExists ? (() => {
+      const filtered = allProducts.concat().filter(product => product.title.includes(searchText))
+      setSorted(filtered)
+      filtered.length ? setIsNotFound(false) : setIsNotFound(true)
+    })() : (() => {
+      setSorted(products)
+      setIsNotFound(false)
+    })()
   }
 
   return (
     <div className="page-title sort-panel">
-      <div className="all-products">Все Товары: {allProducts.length}</div>
+      <div className="all-products">Все Товары: {length}</div>
       <div className="search">
-        <i className="material-icons sort-type">search</i>
-        <input placeholder="Search..." onChange={searchHandler}/>
+        <i onClick={searchHandler} className="material-icons sort-type">search</i>
+        <input placeholder="Search..." value={searchText} onInput={searchTextHandler} />
       </div>
     </div>
   )

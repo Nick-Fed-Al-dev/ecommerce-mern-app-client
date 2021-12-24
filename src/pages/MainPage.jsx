@@ -14,6 +14,7 @@ export const MainPage = ({productType}) => {
   const [isSorted, setIsSorted] = useState(false)
   const [sorted, setSorted] = useState([])
   const [allProducts, setAllProducts] = useState([])
+  const [isNotFound, setIsNotFound] = useState(false)
 
   const getProductsHandler = useCallback(async () => {
     const data = await getProducts(productType, productPage)
@@ -31,12 +32,12 @@ export const MainPage = ({productType}) => {
 
   return (
     <NativeProductContext.Provider value={{
-      products, sorted, setSorted, loading, productPage, setProductPage, isSorted, setIsSorted
+      products, sorted, setSorted, loading, productPage, setProductPage, isSorted, setIsSorted, allProducts, isNotFound, setIsNotFound
     }}>
     <div>
       <Navbar /> 
       <div className="container products-list-wrapper">
-        <SortPanel allProducts={isSorted ? sorted : allProducts}/>
+        <SortPanel length={isSorted ? sorted.length : allProducts.length}/>
         {allProducts.length ? <Pagination products={isSorted ? sorted : allProducts} /> : null}
         <ProductList />
       </div>
