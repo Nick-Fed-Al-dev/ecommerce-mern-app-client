@@ -32,13 +32,13 @@ export const MainPage = ({productType}) => {
 
   return (
     <NativeProductContext.Provider value={{
-      products, sorted, setSorted, loading, productPage, setProductPage, isSorted, setIsSorted, allProducts, isNotFound, setIsNotFound
+      products, sorted, setSorted, loading, productPage, setProductPage, isSorted, setIsSorted, allProducts: productType ? products : allProducts, isNotFound, setIsNotFound
     }}>
     <div>
       <Navbar /> 
       <div className="container products-list-wrapper">
-        <SortPanel length={isSorted ? sorted.length : allProducts.length}/>
-        {allProducts.length ? <Pagination products={isSorted ? sorted : allProducts} /> : null}
+        <SortPanel length={isSorted ? sorted.length : productType ? products.length : allProducts.length}/>
+        {allProducts.length ? <Pagination products={isSorted ? sorted : productType ? products : allProducts} /> : null}
         <ProductList />
       </div>
     </div>

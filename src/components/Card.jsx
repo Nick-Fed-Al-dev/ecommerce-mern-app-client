@@ -17,6 +17,7 @@ export const Card = () => {
 
   if (cardProducts.length) {
     let cardProductsCopy = cardProducts.concat()
+    cardProductsCopy = cardProductsCopy.sort((a, b) => a.price-b.price)
     presentCard = cardProductsCopy.map(item => {
       const copies = cardProductsCopy.filter(copy => item._id === copy._id)
       
