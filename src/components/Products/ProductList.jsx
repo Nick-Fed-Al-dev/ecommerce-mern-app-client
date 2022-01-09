@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { NativeProductContext } from '../context/NativeProductContext'
-import { Loader } from './Loader'
+import { ProductContext } from '../../context/ProductContext'
+import { Loader } from '../Loader'
 import { ProductItem } from './ProductItem'
 
 export const ProductList = () => {
-  const {sorted, loading, isNotFound} = useContext(NativeProductContext)
-  const notFoundImage = require('../assets/image/not-found.png').default
+  const {sorted, loading, isNotFound} = useContext(ProductContext)
+  const notFoundImage = require('../../assets/image/not-found.png').default
 
   const productsLayout = !loading ? 
   isNotFound ?

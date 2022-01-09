@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react"
 import { useParams } from "react-router"
 import { Loader } from "../components/Loader"
-import { Navbar } from "../components/Navbar"
-import { ProductDetails } from "../components/ProductDetails"
-import {useProduct} from '../hooks/nativeProduct.hook'
+import { Navbar } from "../components/Navigation/Navbar"
+import { ProductDetails } from "../components/Products/ProductDetails"
+import {useProduct} from '../hooks/product.hook'
 
 
 export const DetailPage = () => {

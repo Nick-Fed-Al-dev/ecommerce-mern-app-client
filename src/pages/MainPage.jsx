@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useState } from "react"
-import { Navbar } from "../components/Navbar"
-import { Pagination } from "../components/Pagination"
-import { ProductList } from "../components/ProductList"
-import { SortPanel } from "../components/SortPanel"
-import { NativeProductContext } from "../context/NativeProductContext"
-import { useProduct } from "../hooks/nativeProduct.hook"
-
+import { Navbar } from "../components/Navigation/Navbar"
+import { Pagination } from "../components/Navigation/Pagination"
+import { ProductList } from "../components/Products/ProductList"
+import { SortPanel } from "../components/Navigation/SortPanel"
+import { ProductContext } from "../context/ProductContext"
+import { useProduct } from "../hooks/product.hook"
 
 export const MainPage = ({productType}) => {
   const {getProducts, loading} = useProduct()
@@ -31,7 +30,7 @@ export const MainPage = ({productType}) => {
   }, [getProductsHandler])
 
   return (
-    <NativeProductContext.Provider value={{
+    <ProductContext.Provider value={{
       products, sorted, setSorted, loading, productPage, setProductPage, isSorted, setIsSorted, allProducts: productType ? products : allProducts, isNotFound, setIsNotFound
     }}>
     <div>
@@ -42,6 +41,6 @@ export const MainPage = ({productType}) => {
         <ProductList />
       </div>
     </div>
-    </NativeProductContext.Provider>
+    </ProductContext.Provider>
   )
 }

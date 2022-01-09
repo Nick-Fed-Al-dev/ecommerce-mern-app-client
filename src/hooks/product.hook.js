@@ -9,15 +9,16 @@ export const useProduct = () => {
     try {
       const data = await request(baseUrl + `?category=${type}&page=${page}`)
       function shuffle(array) {
-        let currentIndex = array.length,  randomIndex;
+        let currentIndex = array.length,  randomIndex
+
         while (currentIndex !== 0) {
           randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex--;
+          currentIndex--
           [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
+            array[randomIndex], array[currentIndex]]
         }
       
-        return array;
+        return array
       }
       return shuffle(data)
     } catch (error) {

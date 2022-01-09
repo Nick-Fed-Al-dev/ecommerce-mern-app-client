@@ -1,10 +1,10 @@
 import { useCallback, useContext, useEffect, useState } from "react"
-import { Card } from "../components/Card"
-import { CardFooter } from "../components/CardFooter"
-import { Navbar } from "../components/Navbar"
+import { Card } from "../components/Card/Card"
+import { CardFooter } from "../components/Card/CardFooter"
+import { Navbar } from "../components/Navigation/Navbar"
 import { AuthContext } from "../context/AuthContext"
 import { UserContext } from "../context/UserContext"
-import { useNativeUser } from "../hooks/nativeUser.hook"
+import { useNativeUser } from "../hooks/user.hook"
 
 
 export const CardPage = () => {

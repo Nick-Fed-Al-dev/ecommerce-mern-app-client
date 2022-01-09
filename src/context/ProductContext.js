@@ -1,16 +1,16 @@
 import { createContext } from "react";
 
 
-export const NativeProductContext = createContext({
+export const ProductContext = createContext({
+  allProducts: [],
   products: [],
   sorted: [],
-  setSorted: () => {},
   productPage: 1,
-  setProductPage: () => {},
   isSorted: false,
-  setIsSorted: () => {},
   loading: false,
-  allProducts: [],
   isNotFound: false,
+  setSorted: () => {},
+  setProductPage: () => {},
+  setIsSorted: () => {},
   setIsNotFound: () => {}
 })

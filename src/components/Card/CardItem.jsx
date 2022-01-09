@@ -1,8 +1,8 @@
 import { CardItemCounter } from './CardItemCounter'
-import { DetailBtn } from './DetailBtn'
+import { DetailBtn } from '../DetailBtn'
  
 export const CardItem = ({product}) => {
-  const productImage = require('../assets/image/' + product.image).default
+  const productImage = require('../../assets/image/' + product.image).default
 
   return (
     <div id={product.id} className="product-item card-item">

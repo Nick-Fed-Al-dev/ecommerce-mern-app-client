@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import { AuthContext } from '../context/AuthContext'
+import { AuthContext } from '../../context/AuthContext'
 import { NavLink } from 'react-router-dom'
-import { AddToCardBtn } from './AddToCardBtn'
+import { AddToCardBtn } from '../AddToCardBtn'
 
 export const ProductDetails = ({product}) => {
-  const image = require('../assets/image/' + product.image).default
+  const image = require('../../assets/image/' + product.image).default
   const {isAuthenticated} = useContext(AuthContext)
   const propsLayout = product.props.map((prop, i) => <li className="product-detail-properties-item" key={i}>{prop.type}: {prop.value}</li>)
 

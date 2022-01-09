@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import {NavLink} from 'react-router-dom'
-import { AuthContext } from '../context/AuthContext'
-import {NavContext} from "../context/NavContext";
+import { AuthContext } from '../../context/AuthContext'
+import {NavContext} from "../../context/NavContext";
 import {Sidenav} from "./Sidenav";
 
 export const Navbar = () => {

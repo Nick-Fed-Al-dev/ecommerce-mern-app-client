@@ -1,9 +1,9 @@
 import 'materialize-css'
 import { useCallback, useEffect, useState } from 'react';
 import { AuthContext } from './context/AuthContext.js';
-import { NativeProductTypeContext } from './context/NativeProductTypeContext.js';
+import { CategoryContext } from './context/CategoryContext.js';
 import { useAuth } from './hooks/auth.hook.js';
-import { useNativeProductType } from './hooks/nativeProductType.hook.js';
+import { useNativeProductType } from './hooks/category.hook.js';
 import { useRoutes } from "./routes.jsx";
 import {NavContext} from "./context/NavContext";
 
@@ -36,14 +36,14 @@ function App() {
 
   useEffect(() => {
       getProductTypesHandler()
-    
+
   }, [getProductTypesHandler, isAuthenticated])
 
   const routes = useRoutes(isAuthenticated, productTypes.map(type => type.eng), userRole === 'ADMIN')
   
   return (
     <NavContext.Provider value={{isOpen: navOpened, setIsOpen: setNavOpened}}>
-    <NativeProductTypeContext.Provider value={{productTypes, loading}}>
+    <CategoryContext.Provider value={{productTypes, loading}}>
     <AuthContext.Provider value={{
       token, id: userId, role: userRole, login, logout, isAuthenticated
     }}>
@@ -51,7 +51,7 @@ function App() {
         {routes}
       </div>
     </AuthContext.Provider>
-    </NativeProductTypeContext.Provider>
+    </CategoryContext.Provider>
     </NavContext.Provider>
   );
 }

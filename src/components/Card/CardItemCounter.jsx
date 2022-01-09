@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { AuthContext } from "../context/AuthContext"
-import { UserContext } from "../context/UserContext"
+import { AuthContext } from "../../context/AuthContext"
+import { UserContext } from "../../context/UserContext"
 
 
 export const CardItemCounter = ({product}) => {

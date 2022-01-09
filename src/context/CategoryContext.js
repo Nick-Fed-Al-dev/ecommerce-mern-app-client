@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-export const NativeProductTypeContext = createContext({
+export const CategoryContext = createContext({
   productTypes: [],
   loading: false
 })

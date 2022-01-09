@@ -1,5 +1,5 @@
 import { useCallback, useContext, useEffect } from 'react'
-import { UserContext } from '../context/UserContext'
+import { UserContext } from '../../context/UserContext'
 
 export const CardFooter = () => {
   const {cardTotalPrice, setCardTotalPrice, cardProducts} = useContext(UserContext)

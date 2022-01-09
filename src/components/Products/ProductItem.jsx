@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { AuthContext } from '../context/AuthContext'
-import { AddToCardBtn } from './AddToCardBtn'
-import { DetailBtn } from './DetailBtn'
+import { AuthContext } from '../../context/AuthContext'
+import { AddToCardBtn } from '../AddToCardBtn'
+import { DetailBtn } from '../DetailBtn'
 
 export const ProductItem = ({product}) => {
-  const productImage = require('../assets/image/' + product.image).default
+  const productImage = require('../../assets/image/' + product.image).default
   const {isAuthenticated} = useContext(AuthContext)
 
   return (

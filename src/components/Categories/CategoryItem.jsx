@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export const ProductTypeItem = ({type}) => {
-  const typeImage = require('../assets/image/' + type.image).default
+export const CategoryItem = ({type}) => {
+  const typeImage = require('../../assets/image/' + type.image).default
 
   return (  
     <div className="product-item type-item">

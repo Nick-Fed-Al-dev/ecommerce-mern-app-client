@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { AuthContext } from "../context/AuthContext"
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
-import {Navbar} from "../components/Navbar";
+import {Navbar} from "../components/Navigation/Navbar";
 import { NavContext } from "../context/NavContext";
 
 

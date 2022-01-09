@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { AuthContext } from "../context/AuthContext"
 import { useMessage } from "../hooks/message.hook"
-import { useNativeUser } from "../hooks/nativeUser.hook"
+import { useNativeUser } from "../hooks/user.hook"
 
 
 export const AddToCardBtn = ({product}) => {

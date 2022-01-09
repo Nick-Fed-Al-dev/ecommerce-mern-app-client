@@ -1,5 +1,5 @@
-import { Navbar } from "../components/Navbar"
-import { ProductTypeList } from "../components/ProductTypeList"
+import { Navbar } from "../components/Navigation/Navbar"
+import { CategoryList } from "../components/Categories/CategoryList"
 
 
 export const CatalogPage = () => {
@@ -10,7 +10,7 @@ export const CatalogPage = () => {
       <Navbar />
       <div className="container products-list-wrapper">
         <div className="page-title">Каталог</div>
-        <ProductTypeList />
+        <CategoryList />
       </div>
     </div>
   )

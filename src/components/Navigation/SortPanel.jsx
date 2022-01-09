@@ -1,15 +1,15 @@
 import { useContext, useState } from 'react'
-import { NativeProductContext } from '../context/NativeProductContext'
+import { ProductContext } from '../../context/ProductContext'
 
 export const SortPanel = ({length}) => {
-  const {setSorted, setIsSorted, products, allProducts, setIsNotFound} = useContext(NativeProductContext) 
+  const {setSorted, setIsSorted, products, allProducts, setIsNotFound} = useContext(ProductContext)
   const [searchText, setSearchText] = useState('')
 
   const searchTextHandler = e => {
     setSearchText(e.target.value)
   }
 
-  const searchHandler = (e) => {
+  const searchHandler = () => {
     const textExists = searchText.length
     textExists ? setIsSorted(true) : setIsSorted(false)
     textExists ? (() => {

@@ -1,8 +1,8 @@
-import { Navbar } from "../components/Navbar"
-import {ProductDashboard} from "../components/ProductDashboard";
-import {UserDashboard} from "../components/UserDashboard";
-import {CategoryDashboard} from "../components/CategoryDashboard";
-import {AdminSidebar} from "../components/AdminSidebar";
+import { Navbar } from "../components/Navigation/Navbar"
+import {ProductDashboard} from "../components/Admin/ProductDashboard";
+import {UserDashboard} from "../components/Admin/UserDashboard";
+import {CategoryDashboard} from "../components/Admin/CategoryDashboard";
+import {AdminSidebar} from "../components/Admin/AdminSidebar";
 
 
 export const AdminPage = ({page}) => {

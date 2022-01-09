@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../context/UserContext'
+import { UserContext } from '../../context/UserContext'
 import { CardItem } from './CardItem'
-import { Loader } from './Loader'
+import { Loader } from '../Loader'
 
 export const Card = () => {
   const {cardProducts, loading} = useContext(UserContext)
-  const emptyCardImage = require('../assets/image/empty-card.png').default
+  const emptyCardImage = require('../../assets/image/empty-card.png').default
 
   const emptyTemplate = (
     <div className="empty-wrapper">

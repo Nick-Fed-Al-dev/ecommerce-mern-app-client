@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import { NativeProductContext } from "../context/NativeProductContext"
+import { ProductContext } from "../../context/ProductContext"
 
 
 export const PaginationItem = ({index}) => {
-  const {productPage, setProductPage} = useContext(NativeProductContext)
+  const {productPage, setProductPage} = useContext(ProductContext)
 
   const setProductPageHandler = () => setProductPage(index+1)
 
