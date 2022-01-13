@@ -1,14 +1,21 @@
 @import "../templates/horizontal"
 
 .product-detail
+	display: flex
 	margin-top: 40px
 
+	.product-detail-panel
+		display: flex
+		flex-direction: column
+		margin-left: 70px
+
 	.product-detail-image
-		width: 70%
+		width: 50%
+		max-height: 500px
 
 	.product-detail-info
 		@extend %horizontal
-		margin-top: 20px
+		margin-top: -20px
 		font-size: xx-large
 
 	.product-detail-description
@@ -29,4 +36,4 @@
 
 	.product-detail-title
 		font-size: xx-large
-		margin-top: 40px
+		margin-top: 20px
