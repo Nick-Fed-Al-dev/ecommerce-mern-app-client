@@ -3,16 +3,39 @@ import {useHttp} from "./http.hook";
 
 
 export const useReview = () => {
+	const reviewBaseUrl = 'https://mern-online-shop-project.herokuapp.com/api/reviews/native'
+	const {request, loading} = useHttp()
 
-	const {request} = useHttp()
-
-	const pushReview = useCallback(async ({owner, product, text, date}) => {
+	const getReviews = useCallback(async (productId, token) => {
 		try {
-			await request('https://mern-online-shop-project.herokuapp.com/api/reviews')
+			const reviews = (await request(reviewBaseUrl, "GET", null, {
+				authorization: 'Bearer ' + token
+			})).filter(review => review.product === productId)
+			return reviews
 		} catch (e) {
 			console.log(e)
 		}
 	}, [])
 
-	return {pushReview}
+	const pushReview = useCallback(async (review, token) => {
+		try {
+			await request(reviewBaseUrl, 'POST', review, {
+				Authorization: 'Bearer ' + token
+			})
+		} catch (e) {
+			console.log(e)
+		}
+	}, [])
+
+	const removeReview = useCallback(async (id, token) => {
+		try {
+			await request(reviewBaseUrl + '/' + id, "DELETE", null, {
+				Authorization: 'Bearer ' + token
+			})
+		} catch (e) {
+			console.log(e)
+		}
+	}, [])
+
+	return {getReviews, pushReview, removeReview, loading}
 }

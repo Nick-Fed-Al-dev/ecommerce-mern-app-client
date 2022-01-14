@@ -30,7 +30,7 @@ export const ProductDetails = ({product}) => {
           </div>
         </div>
       </div>
-      <Reviews reviews={product.reviews} />
+      <Reviews productId={product.id} />
     </div>
   )
 }
