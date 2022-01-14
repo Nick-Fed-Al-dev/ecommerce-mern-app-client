@@ -65,8 +65,8 @@ export const AuthPage = () => {
               <label htmlFor="password">Password</label>
             </div>
             <div className="form-btn-wrapper">
-              <button onClick={registrateHandler.bind(null, form.email, form.password)} className="btn deep-purple accent-3 register-btn">Register</button>
-              <button onClick={loginHandler.bind(null, form.email, form.password)} className="btn black login-btn">Login</button>
+              <button onClick={registrateHandler.bind(null, form.email, form.password)} className="btn deep-purple accent-3 register-btn">Регистрация</button>
+              <button onClick={loginHandler.bind(null, form.email, form.password)} className="btn black login-btn">Войти</button>
             </div>
         </form>
     </div>

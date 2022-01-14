@@ -4,6 +4,7 @@ import {useCallback, useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {Loader} from "../Loader";
 import {useHttp} from "../../hooks/http.hook";
+import {useMessage} from "../../hooks/message.hook";
 
 
 export const Reviews = ({productId}) => {
@@ -11,7 +12,9 @@ export const Reviews = ({productId}) => {
 	const [text, setText] = useState('')
 	const [reviews, setReviews] = useState([])
 
-	const {id, token} = useContext(AuthContext)
+	const {id, token, isAuthenticated} = useContext(AuthContext)
+
+	const {message} = useMessage()
 
 	const {request} = useHttp()
 
@@ -20,7 +23,7 @@ export const Reviews = ({productId}) => {
 	const changeHandler = e => setText(e.target.value)
 
 	const pushReviewHandler = async () => {
-		if (text.length){
+		if (text.length && isAuthenticated){
 			const pushPayload = {
 				owner: await request('https://mern-online-shop-project.herokuapp.com/api/user/interact/native/' + id),
 				product: productId,
@@ -31,6 +34,8 @@ export const Reviews = ({productId}) => {
 			await pushReview(pushPayload, token)
 			setReviews(prev => [...prev, pushPayload])
 			setText('')
+		} else if (!isAuthenticated) {
+			message("ВОЙДИТЕ ЧТОБЫ ОСТАВЛЯТЬ ОТЗЫВЫ")
 		}
 	}
 
