@@ -2,6 +2,6 @@
 
 export const Loader = () => {
   return (
-    <div className="lds-roller loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div class="lds-circle loader"><div></div></div>
   )
 }

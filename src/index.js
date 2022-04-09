@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import App from './App.jsx';
-import reportWebVitals from './reportWebVitals';
 import './sass/index.sass';
 
 ReactDOM.render(
@@ -12,6 +11,4 @@ ReactDOM.render(
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
-);
-
-reportWebVitals();
+)
