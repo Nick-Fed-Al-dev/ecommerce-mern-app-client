@@ -23,7 +23,7 @@ export const AuthPage = () => {
   const registrateHandler = async (email, password, e) => {
     try {
       e.preventDefault()
-      const regUrl = 'https://mern-online-shop-project.herokuapp.com/api/user/auth/registrate'
+      const regUrl = 'https://ecommerce-mern-app-server.herokuapp.com/api/user/auth/registrate'
       const data = await request(regUrl, 'POST', {email, password})
       if(error){
         clearError()
@@ -36,7 +36,7 @@ export const AuthPage = () => {
   const loginHandler = async (email, password, e) => {
     try {
       e.preventDefault()
-      const loginUrl = 'https://mern-online-shop-project.herokuapp.com/api/user/auth/login'
+      const loginUrl = 'https://ecommerce-mern-app-server.herokuapp.com/api/user/auth/login'
       const data = await request(loginUrl, 'POST', {email, password})
 
       if(error){

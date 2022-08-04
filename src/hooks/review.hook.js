@@ -3,7 +3,7 @@ import {useHttp} from "./http.hook";
 
 
 export const useReview = () => {
-	const reviewBaseUrl = 'https://mern-online-shop-project.herokuapp.com/api/reviews/native'
+	const reviewBaseUrl = 'https://ecommerce-mern-app-server.herokuapp.com/api/reviews/native'
 	const {request, loading} = useHttp()
 
 	const getReviews = useCallback(async (productId, token) => {

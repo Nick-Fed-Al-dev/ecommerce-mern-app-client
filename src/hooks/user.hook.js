@@ -2,8 +2,8 @@ import { useCallback } from "react"
 import { useHttp } from "./http.hook"
 
 export const useNativeUser = () => {
-  const baseUser = 'https://mern-online-shop-project.herokuapp.com/api/user/interact/native/'
-  const baseProduct = 'https://mern-online-shop-project.herokuapp.com/api/product/native/'
+  const baseUser = 'https://ecommerce-mern-app-server.herokuapp.com/api/user/interact/native/'
+  const baseProduct = 'https://ecommerce-mern-app-server.herokuapp.com/api/product/native/'
   const {request, loading} = useHttp()
 
   const addToCard = useCallback(async (productId, userId, token) => {

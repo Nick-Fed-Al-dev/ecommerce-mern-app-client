@@ -2,7 +2,7 @@ import { useCallback } from "react"
 import { useHttp } from "./http.hook"
 
 export const useProduct = () => {
-  const baseUrl = 'https://mern-online-shop-project.herokuapp.com/api/product/native'
+  const baseUrl = 'https://ecommerce-mern-app-server.herokuapp.com/api/product/native'
   const {request, loading} = useHttp()
 
   const getProducts = useCallback(async (type, page) => {
